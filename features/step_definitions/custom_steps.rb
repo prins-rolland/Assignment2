@@ -13,7 +13,9 @@ When(/^the user search for "([^"]*)"$/) do |query|
   # Get the input element
   #searchbox = browser.find(:like => [:div, :id => "p-search"])
   searchbox = browser.find(
-      :id => 'p-search'
+      :like => {
+          :element => :input, :id => :searchinput
+      }
   )
   # Make sure the input field is empty
   searchbox.clear rescue log.debug "Could not clear searchbox"
